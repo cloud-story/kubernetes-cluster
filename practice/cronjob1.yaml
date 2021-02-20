@@ -1,0 +1,23 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  creationTimestamp: null
+  name: cronjob1
+spec:
+  jobTemplate:
+    metadata:
+      creationTimestamp: null
+      name: cronjob1
+    spec:
+      template:
+        metadata:
+          creationTimestamp: null
+        spec:
+          containers:
+          - image: ubuntu
+            name: cronjob1
+            command: ["expr","3","+","2"]
+            resources: {}
+          restartPolicy: OnFailure
+  schedule: '*/1 * * * *'
+status: {}

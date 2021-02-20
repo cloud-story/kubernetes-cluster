@@ -1,0 +1,19 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  creationTimestamp: null
+  name: job1
+spec:
+  completions: 4
+  parallelism: 2
+  template:
+    metadata:
+      creationTimestamp: null
+    spec:
+      containers:
+      - image: ubuntu
+        name: job1
+        resources: {}
+        command: ["sleep","10"]
+      restartPolicy: Never
+status: {}
